@@ -1,0 +1,10 @@
+ 
+ //Let assume a I have a json structure like below and I want to take the Documents and filter by some value.
+ 
+ getFiltered() {
+    return this.httpClient.get('assets/dataSource.json').pipe(mergeMap((x: any) => {    
+      return x.Documents;
+    }), filter((link: any) => {     
+      return link.Typeofcontent == "Some Content";
+    }), toArray());   
+  }
